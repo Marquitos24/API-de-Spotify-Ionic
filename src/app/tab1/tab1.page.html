@@ -1,0 +1,53 @@
+<ion-content class="fondo">
+  <div class="page-container">
+    <ion-header class="colorp">
+      <div>
+        <ion-grid>
+          <br>
+          <ion-row>
+            <ion-col>
+              <img src="./assets/logo.png" class="logo">
+            </ion-col>
+            <ion-col class="p">
+              <table class="pres">
+                <tr>
+                  <td class="a">AÑADIR CANCIÓN A LA LISTA FAVORITOS</td>
+                </tr>
+              </table>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-header>
+  </div>
+
+  <div class="fondo">
+    <br>
+    <br>
+    <ion-card class="centro">
+      <ion-label><h1>Seleccionar canción</h1></ion-label>
+      
+    
+      <ion-searchbar showCancelButton="focus" placeholder="Nombre de la canción" id="cancion" name="cancion" class="custom" [(ngModel)]="cancion"></ion-searchbar>
+      <button (click)="handleSearch()" class="boton btn2">Buscar</button>
+      <br>
+      <br>
+    
+      <div id="resultadosBusqueda" class="ctn">
+        <div *ngFor="let cancion of canciones">
+          <img [src]="cancion.data.albumOfTrack.coverArt.sources[0].url" />
+          <h2>{{ cancion.data.name }}</h2>
+          <a [href]="cancion.data.uri"><button class="boton">ESCUCHAR</button></a>
+          <ion-button (click)="anadirCanciones(cancion)" color="#1ED760" class="boton" id="boton">Añadir a la lista</ion-button>
+          <br>
+          <br>
+        </div>
+      </div>
+      <br>
+    </ion-card>
+   
+    
+    <br>
+   
+  </div>
+</ion-content>

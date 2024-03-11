@@ -1,0 +1,65 @@
+<ion-content class="fondo">
+ 
+  <div class="page-container">
+
+    <ion-header class="colorp">
+     
+      <div>
+      <ion-grid>
+        <br>
+        <ion-row>
+          <ion-col>
+            <img src="./assets/logo.png" class="logo">
+          </ion-col>
+
+          <ion-col class="p">
+            <table class="pres">
+              <tr>
+              <td class="a">
+                FAVORITOS
+              </td>
+            </tr>
+            </table>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </div>
+  </ion-header>
+  </div>
+    <br>
+    <br>
+ 
+    <ion-button expand="block" (click)="scrollToBottom()" color="#1ED760" class="boton">Bajar</ion-button>
+<br>
+<button (click)="actualizar()" class="btn3">Mostrar Favoritos</button>
+   <br>
+  <ion-card *ngFor="let cancion of cancionesAgregadas" class="ctn">
+    <br>
+    <img  [src]="cancion.data.albumOfTrack.coverArt.sources[0].url" />
+    <ion-card-header>
+      <ion-card-title class="blanco"> <h2>{{ cancion.data.name }}</h2></ion-card-title>
+      <ion-card-subtitle class="blanco"><h2>{{ cancion.data.artists.name}}</h2></ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{ cancion.data.albumOfTrack.name }}
+      <br>
+      <br>
+      <a [href]="cancion.data.uri"><button class="bn">ESCUCHAR</button></a>
+      <br>
+      
+      <button (click)="eliminar(cancion)" class="btn2">ELIMINAR</button>
+      <!--<button (click)="modificar()" class="btn2">MODIFICAR</button>
+      -->
+     
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+<br>
+  <ion-button expand="block" (click)="scrollToTop()" color="#1ED760" class="boton">Subir</ion-button>
+</ion-content>
